@@ -27,9 +27,9 @@ public:
         if (amount > 0) {
             balance += amount;
             transactions.push_back("Deposited: " + to_string(amount));
-            cout << "✅ Deposit successful.\n";
+            cout << " Deposit successful.\n";
         } else {
-            cout << "❌ Invalid deposit amount.\n";
+            cout << " Invalid deposit amount.\n";
         }
     }
 
@@ -37,14 +37,14 @@ public:
         if (amount > 0 && amount <= balance) {
             balance -= amount;
             transactions.push_back("Withdrew: " + to_string(amount));
-            cout << "✅ Withdrawal successful.\n";
+            cout << " Withdrawal successful.\n";
         } else {
-            cout << "❌ Invalid or insufficient balance.\n";
+            cout << " Invalid or insufficient balance.\n";
         }
     }
 
     void displayTransactions() {
-        cout << "\n📒 Transaction History for Account " << accountNumber << ":\n";
+        cout << "\n Transaction History for Account " << accountNumber << ":\n";
         for (string t : transactions) {
             cout << " - " << t << endl;
         }
@@ -52,7 +52,7 @@ public:
 
     void displayDetails() {
         cout << fixed << setprecision(2);  // Show only 2 decimal places
-        cout << "\n🏦 Account Details\n";
+        cout << "\n Account Details\n";
         cout << "Account Number: " << accountNumber << endl;
         cout << "Owner: " << ownerName << endl;
         cout << "Balance: " << balance << endl;
@@ -68,12 +68,12 @@ public:
     void createAccount(int accNo, string owner, double initialBalance = 0.0) {
         for (auto &acc : accounts) {
             if (acc.getAccountNumber() == accNo) {
-                cout << "❌ Error: Account number already exists.\n";
+                cout << " Error: Account number already exists.\n";
                 return;
             }
         }
         accounts.push_back(Account(accNo, owner, initialBalance));
-        cout << "✅ Account created successfully!\n";
+        cout << "Account created successfully!\n";
     }
 
     Account* findAccount(int accNo) {
@@ -82,7 +82,7 @@ public:
                 return &acc;
             }
         }
-        cout << "❌ Account not found.\n";
+        cout << " Account not found.\n";
         return nullptr;
     }
 };
@@ -153,11 +153,12 @@ int main() {
                 break;
 
             case 6:
-                cout << "👋 Exiting system. Goodbye!\n";
+                cout << " Exiting system. Goodbye!\n";
                 return 0;
 
             default:
-                cout << "❌ Invalid choice. Try again.\n";
+                cout << " Invalid choice. Try again.\n";
         }
     }
 }
+
